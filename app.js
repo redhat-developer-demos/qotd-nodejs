@@ -37,6 +37,11 @@ app.get('/quotes', (req, res) => {
     res.send(quotes);
 });
 
+app.get('/quotes/random', (req, res) => {
+    const id = Math.floor(Math.random() * 5);
+    res.send(quotes[id]);
+});
+
 app.get('/quotes/:id', (req, res) => {
     const id = req.params.id;
     res.send(quotes[id]);
