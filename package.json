@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/donschenck/qotd-nodejs#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "env-var": "^7.3.1",
     "express": "^4.17.1"
   }
 }

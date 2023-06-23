@@ -1,9 +1,13 @@
 const express = require('express');
 
+const cors = require('cors')
+const env = require('env-var')
+
 const app = express();
 
 const port = 10000;
 
+const allowedOrigin = env.get('ALLOWED_ORIGIN').default('*').asString()
 
 quotes = [];
 
@@ -20,6 +24,9 @@ quotes.push(q);
 q = { "id":"5", "quotation":"Do be do be dooo.","author":"Frank Sinatra"};
 quotes.push(q);
 
+app.use(cors({
+    origin: allowedOrigin
+}));
 
 app.get('/', (req, res) => {
     res.send('qotd');
